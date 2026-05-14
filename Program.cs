@@ -1,5 +1,5 @@
 // ============================================================
-// Program.cs  (CORRIGIDO)
+// Program.cs  
 // Ponto de entrada — executa todos os cenários do enunciado
 // ============================================================
 
@@ -58,12 +58,13 @@ namespace PSO
                 convergences.Add((key, new List<double>(solver.FitnessHistory)));
 
                 // Nome de arquivo simples, sem caracteres especiais
-                string posFile = $"positions_{key}.csv";
+                string posFile = $"particle-positions-csv/positions_{key}.csv";
                 CsvExporter.ExportPositions(solver.PositionHistory, posFile);
+
             }
 
             ResultPrinter.PrintComparisonTable(comparison);
-            CsvExporter.ExportConvergence(convergences, "convergence_all.csv");
+            CsvExporter.ExportConvergence(convergences, "convergence-csv/convergence_all.csv");
 
             Console.WriteLine("\nArquivos CSV gerados na pasta do executável.");
             Console.WriteLine("Pressione qualquer tecla para sair...");

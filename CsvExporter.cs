@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 
 namespace PSO
@@ -36,7 +37,7 @@ namespace PSO
                 foreach (var s in scenarios)
                 {
                     double val = i < s.History.Count ? s.History[i] : double.NaN;
-                    sw.Write($",{val:F8}");
+                    sw.Write($",{val.ToString("F8", CultureInfo.InvariantCulture)}");
                 }
                 sw.WriteLine();
             }
@@ -62,7 +63,7 @@ namespace PSO
                 {
                     sw.Write($"{iter + 1},{p + 1}");
                     foreach (double coord in snapshot[p])
-                        sw.Write($",{coord:F6}");
+                        sw.Write($",{coord.ToString("F6", CultureInfo.InvariantCulture)}");
                     sw.WriteLine();
                 }
             }
